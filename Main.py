@@ -1,48 +1,29 @@
 from typing import List
 
-def merge_sort(data) -> None:
-void merge(int arr[],int LeftInd,int RightInd,int MiddleInd)
-{
-  int i,j,k;
-  int n1=MiddleInd-LeftInd+1;
-  int n2=RightInd-MiddleInd;
-  int L[n1],R[n2];
-  for(i=0;i<n;i++)
-  {
-    L[i]=arr[LeftInd+i];
-  }
-  for(j=0;j<n;j++)
-  {
-    R[j]=arr[MiddleInd+1+j];
-  }
-  i=0,j=0,k=LeftInd;
-  while(i<n1 && j<n2)
-  {
-    if(L[i]<=R[j])
-    {
-      arr[k]=L[i];
-      i++;
-    }
-    else
-    {
-      arr[k]=R[j];
-      j++;
-    }
-    k++;
-  while(i<n1)
-  {
-    arr[k]=L[i];
-    i++;
-    k++;
-  }
-  while(j<n2)
-  {
-    arr[k]=R[j];
-    j++;
-    k++;
-  }
-  }
-}
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr)//2
+        L = arr[:mid]
+        R = arr[mid:]
+        mergeSort(L)
+        mergeSort(R)
+        i = j = k = 0
+        while i < len(L) and j < len(R):
+            if L[i] <= R[j]:
+                arr[k] = L[i]
+                i += 1
+            else:
+                arr[k] = R[j]
+                j += 1
+            k += 1
+        while i < len(L):
+            arr[k] = L[i]
+            i += 1
+            k += 1
+        while j < len(R):
+            arr[k] = R[j]
+            j += 1
+            k += 1
       
 # Do not change the following code
 input_data = input()
